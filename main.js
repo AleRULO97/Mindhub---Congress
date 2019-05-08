@@ -3,6 +3,7 @@ var tableHead = document.createElement("thead"); //CREO HEAD DE LA TABLA
 var fullname;
 var cell;
 var row;
+var members = data.results[0].members;
 
 //Función para cuerpo de tabla
 function cellCreation(string){
@@ -24,13 +25,14 @@ function cellHeadCreation(string){
 
  //Creación de row y th's para tableHead
  row = tableHead.insertRow(); 
- cellHeadCreation("Senator");
+ cellHeadCreation("Name");
  cellHeadCreation("Party");
  cellHeadCreation("State");
  cellHeadCreation("Seniority");
  cellHeadCreation("Votes percentage");
 
 //Creación de rows y td's para tableBody
+function crearTabla(Array){
 data.results[0].members.forEach(function (i){ 
 	row = tableBody.insertRow();  //Creo row para tableBody
 	if (i.middle_name == null){
@@ -46,6 +48,46 @@ data.results[0].members.forEach(function (i){
 	cellCreation(i.state);
 	cellCreation(i.seniority);
 	cellCreation(i.votes_with_party_pct + " %");
+
 });
+}
+
+function filterMembers(members) {
+  var checkBoxes = document.querySelectorAll('input[name=party-filter]:checked')
+  // console.log(checkBoxes);
+  checkedBoxes = Array.from(checkBoxes)
+  // console.log(checkedBoxes);
+  checkedBoxes = checkedBoxes.map(function(element) {
+    return element.value;
+  })
+  // console.log(checkedBoxes);
+  var filtrados = [];
+  filtrados = members.filter(function(members) {
+    if (checkedBoxes.includes(members.party)) {
+      return members;
+    }
+  });
+  console.log(filtrados);
+  if (filterState() !== "todos") {
+		filtrados = filtrados.filter(senador => filterState() == senador.state )
+		return filtrados;
+    console.log(filtrados);
+	} else if (filterState() == "todos") {
+		return filtrados;
+    console.log(filtrados);
+	}
+}
+
+function filterState() {
+  var state = document.querySelector('#state-filter').value;
+  console.log(state);
+  return state;
+}
+
+function clearTable() {
+  $(".rowBody").remove();
+  crearTabla(filterMembers(members));
+}
+crearTabla(members);
 
 

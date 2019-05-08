@@ -1,33 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-
-    </head>
+ <title>Transparent Government in Fact</title>
+ <link rel="icon" href="Images/icon.jpg">
+ <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+ <!-- jQuery library -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <!-- Popper JS -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+ <!-- Latest compiled JavaScript --> 
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
     
     <body>
-         <nav>
-          <div>
-            <div>
-              <a href="#">TGIF</a>
-            </div>
-            <ul >
-              <li><a href="#">Home</a></li>
-              <li >
-                <a href="#">Congress 113</a>
-                <ul >
-                  <li><a href="#">Senate</a></li>
-                  <li><a href="#">House</a></li>
+         <header class="container-fluid d-flex justify-content-between bg-light">
+        <div>
+            <img src="Images/tgif.png" class="ml-0" alt="Logo TGIF" onclick=# id="tgif">
+        </div>
+        <div id="info" class="d-flex align-items-center">
+            <img id="mail" class="mr-2" src="Images/mail.png" alt="mail"  onclick=#> 
+            <p id="meil" class="m-0"><a href="mailto:info@tgif.net">info@tgif.net</a></p>
+        </div>
+    </header>
+    <nav class="container-fluid d-flex bg-light border">
+        <ul class="nav">
+            <li class="nav-item"><a href="home.html" class="nav-link active">Home</a></li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Congress 113</a>
+                <ul class="dropdown-menu bg-light">
+                    <li><a href="senate-data.html" class="dropdown-item">Senate</a></li>
+                    <li><a href="house-data.html" class="dropdown-item">House</a></li>
                 </ul>
-              </li>
-            </ul>
-          </div>
-        </nav>        
+            </li>
+        </ul>
+    </nav>       
             <!--Table container-->
-        <div>     
+        <div class="container float-left">     
             <h2>Congressmen</h2>
             <p>The major power of the House is to pass federal legislation that affects the entire country, although its bills must also be passed by the Senate and further agreed to by the U.S. President before becoming law (unless both the House and Senate re-pass the legislation with a two-thirds majority in each chamber). The House has some exclusive powers: the power to initiate revenue bills, to impeach officials (impeached officials are subsequently tried in the Senate), and to elect the U.S. President in case there is no majority in the Electoral College.</p>
             <p>Each U.S. state is represented in the House in proportion to its population as measured in the census, but every state is entitled to at least one representative. </p>
-       	    <table>
+       	    <!--<table>
                 <thead>
                     <tr>
                         <th>Members</th>
@@ -96,11 +110,16 @@
                         <td>1192</td>
                     </tr>
                 </tbody>
-            </table>
+            </table>-->
 	    </div>
-    <table class="table" id="house-data">
+    <table class="table" id="senate-data">
 
     </table>
+    <footer class="container-fluid d-flex justify-content-center align-items-center bg-light border mt-2 mb-4">
+    <p class="m-4">©2016 TGIF | All Rights Reserved</p>
+</footer>
+
+    
     <script src="pro-congress-113-house.js"></script>
     <script src="main.js"></script>
     </body>
